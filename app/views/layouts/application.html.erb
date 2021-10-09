@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AppGourmetReport</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>AppGourmetReport</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="main-visual">
+  <header class="header header__inner">
+    <nav class="nav">
+      <h1 class="nav__ttl">
+        <a href="/" class="none-decoration nav__ttl-link">グルレポ</a>
+      </h1>
+      <ul class="d-flex nav__list">
+        <li class="nav__list-item">
+          <a href="/home/about" class="nav__list-link">グルレポとは</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__list-link">新規登録</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__list-link">ログイン</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+  <%= yield %>
+</body>
+
 </html>
