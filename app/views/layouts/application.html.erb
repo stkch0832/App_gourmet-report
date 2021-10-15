@@ -16,17 +16,17 @@
   <header class="header header__inner">
     <nav class="nav">
       <h1 class="nav__ttl">
-        <a href="/" class="none-decoration nav__ttl-link">グルレポ</a>
+        <%= link_to("グルレポ", "/",{ class: "none-decoration nav__ttl-link"}) %>
       </h1>
       <ul class="d-flex nav__list">
         <li class="nav__list-item">
-          <a href="/home/about" class="nav__list-link">グルレポとは</a>
+          <%= link_to("グルレポとは", "/home/about",{ class: "nav__list-link"}) %>
         </li>
         <li class="nav__list-item">
-          <a href="#" class="nav__list-link">新規登録</a>
+          <%= link_to("新規登録", "/home/about",{ class: "nav__list-link"}) %>
         </li>
         <li class="nav__list-item">
-          <a href="#" class="nav__list-link">ログイン</a>
+          <%= link_to("ログイン", "/home/about",{ class: "nav__list-link"}) %>
         </li>
       </ul>
     </nav>

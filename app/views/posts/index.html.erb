@@ -1,0 +1,24 @@
+<section>
+  <ul>
+    <% @posts.each do |post|%>
+    <li class="post post__inner"><a class="none-decoration post__link" href="">
+        <div class="d-flex post__item">
+          <img class="post__user-image" src="/default_user_image.jpg" alt="">
+          <div class="d-flex post__info">
+            <div class="post__info-left">
+              <%# <p>user_name</p> %>
+              <br>
+              <%= post.area_name %>
+            </div>
+            <div class="post__info-right">
+              <%= post.shop_name %>
+              <br>
+              <%= post.comment %>
+            </div>
+          </div>
+          <img class="post__post-image" src="" alt="">
+        </div>
+      </a></li>
+      <% end %>
+  </ul>
+</section>
