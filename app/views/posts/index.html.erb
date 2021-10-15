@@ -8,11 +8,14 @@
             <div class="post__info-left">
               <%# <p>user_name</p> %>
               <br>
+              <%= l post.created_at %>
+            </div>
+            <div class="post__info-center">
+              <%= post.shop_name %>
+              <br>
               <%= post.area_name %>
             </div>
             <div class="post__info-right">
-              <%= post.shop_name %>
-              <br>
               <%= post.comment %>
             </div>
           </div>
