@@ -1,0 +1,80 @@
+<section class="detail detail__inner">
+  <div class="d-flex align-items-center head">
+    <div class="head__left">
+      <img class="head__user-img" src="<%= "/user_images/default_user_image.jpg" %>" alt="">
+    </div>
+    <div class="head__center flex-grow-1">
+      <p class="head__user-name">user name</p>
+      <%# <%= l @post.created_at %>
+      </p>
+    </div>
+    <div class="head__right">
+      <p class="head__right-like">♥ 100</p>
+    </div>
+  </div>
+
+<%= form_with url:"posts/create" do |f| %>
+
+  <div class="d-flex form">
+    <div class="form__left">
+  
+  <div>
+  <%= f.label :shop_name, '店舗名' %>
+  <%= f.text_field :shop_name, class: "form__item form__shop-name", size: "30" %>
+  </div>
+  
+  <div>
+  <%= f.label :area_name, '所在地・最寄り駅' %>
+  <%= f.text_field :area_name, class: "form__item form__area-name", size: "30" %>
+  </div>
+  <div>
+  <%= f.label :comment, 'コメント' %>
+  <%= f.text_area :comment, class: "form__item form__comment",  size: "32x5" %>
+  </div>
+    </div>
+    <div class="form__right">
+       <p class="form__item form__shop-category">shop category</p>
+      <select name="shop_category">
+        <option value="">選択してください</option>
+        <option value="cafe">カフェ</option>
+        <option value="fastfood">ファストフード</option>
+        <option value="reatrant">レストラン</option>
+        <option value="tavern">居酒屋</option>
+        <option value="bar">BAR</option>
+      </select>
+
+      <p class="body-r__product-category">product category</p>
+      <select name="product_category">
+        <option value="">選択してください</option>
+        <option value="drink">飲料</option>
+        <option value="meet">肉</option>
+        <option value="fish">魚</option>
+        <option value="bowl">丼物</option>
+        <option value="noodles">麺類</option>
+        <option value="pasta">パスタ</option>
+        <option value="bread">パン</option>
+        <option value="curry">カレー</option>
+        <option value="hamburger">ハンバーガー</option>
+        <option value="japanese">和食</option>
+        <option value="westan">洋食</option>
+        <option value="chinese">中華</option>
+      </select>
+
+      <p class="body-r__tag">tag</p>
+
+
+    </div>
+  </div>
+  <div class="d-flex form__bottom">
+    <div class="form__bottom-img">
+      <p class="form__label">image</p>
+      <img class="form__img form__img-1" src="<%= "/post_image/fd401527.jpg" %>" 
+      alt="">
+    </div>
+    <div class="form__bottom-btn">
+      <button class="btn btn-primary btn-lg me-3">編集</button>
+      <button class="btn btn-danger btn-lg">削除</button>
+    </div>
+  </div>
+  <% end %>
+</section>

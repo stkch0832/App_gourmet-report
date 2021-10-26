@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// ----- * index * ----- //
+
 .post {
   width: 80%;
   height: 10rem;
@@ -10,11 +12,11 @@
 
   &__inner {
     // padding: 2rem 5rem;
-    background-color: #ECEAE4;
+    background-color: #eceae4;
   }
 
   &__link {
-    display: inline-block;
+    // display: inline-block;
     width: 100%;
     height: 100%;
   }
@@ -30,7 +32,6 @@
     display: inline-block;
     margin-right: 5rem;
     background-color: aqua;
-
   }
 
   &__info {
@@ -43,13 +44,11 @@
       width: 20rem;
       margin-right: 5rem;
     }
-    
+
     &-center {
       width: 20rem;
       margin-right: 5rem;
     }
-
-
   }
 
   &__post-image {
@@ -57,4 +56,113 @@
     height: 100%;
     background-color: aqua;
   }
-} 
+}
+
+// ----- * show * ----- //
+.detail {
+  width: 80%;
+  height: 80%;
+  background-color: #eceae4;
+
+  &__inner {
+    margin: 0 auto;
+    padding: 5rem 10rem;
+    font-size: 2.5rem;
+    color: #d63d17;
+  }
+}
+
+.head {
+  width: 100%;
+  height: 10rem;
+  // margin-bottom: 5rem;
+  // background-color: aqua;
+
+  &__left {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 5rem;
+  }
+
+  &__user-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__right {
+    width: 10rem;
+    height: 10rem;
+    margin: 0 5rem;
+    padding: 3rem 0;
+    text-align: center;
+    vertical-align: middle;
+
+    &-like {
+      margin: auto;
+    }
+  }
+}
+
+.body {
+  width: 100%;
+  height: 35rem;
+  // background-color: blue;
+
+  &__left {
+    position: relative;
+  }
+
+  &__right {
+    position: absolute;
+    left: 50%;
+  }
+
+  &__bottom {
+    height: 10rem;
+    // background-color: cyan;
+    position: relative;
+
+    &-img {
+    }
+
+    &-btn {
+      position: absolute;
+      top: 30%;
+      left: 85%;
+    }
+  }
+}
+
+// ----- * form * ----- //
+.form {
+  &__right {
+    margin: 0 auto;
+  }
+
+  &__item {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  &__bottom {
+    position: relative;
+    
+    &-btn {
+      position: absolute;
+      top: 45%;
+      left: 85%;
+    }
+  }
+
+  &__control {
+    width: 30rem;
+    height: 4rem;
+  }
+  
+
+  &__img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+}

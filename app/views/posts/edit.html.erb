@@ -1,0 +1,65 @@
+<section class="detail detail__inner">
+  <div class="d-flex align-items-center head">
+    <div class="head__left">
+      <img class="head__user-img" src="<%= "/user_images/default_user_image.jpg" %>" alt="">
+    </div>
+    <div class="head__center flex-grow-1">
+      <p class="head__user-name">user name</p>
+      </p>
+    </div>
+    <div class="head__right">
+      <p class="head__right-like">♥ 100</p>
+    </div>
+  </div>
+
+  <%= form_with url:"/posts/#{@post.id}/update" do |f| %>
+
+  <div class="d-flex form">
+    <div class="form__left">
+
+      <div>
+        <%= f.label :shop_name, '店舗名' %>
+        <%= f.text_field :shop_name, class: "form__item form__shop-name", size: "30", value: @post.shop_name %>
+      </div>
+
+      <div>
+        <%= f.label :area_name, '所在地・最寄り駅' %>
+        <%= f.text_field :area_name, class: "form__item form__area-name", size: "30", value: @post.area_name %>
+      </div>
+      <div>
+        <%= f.label :comment, 'コメント' %>
+        <%= f.text_area :comment, class: "form__item form__comment",  size: "32x5", value: @post.comment %>
+      </div>
+    </div>
+    <div class="form__right">
+      <p class="form__item form__shop-category">shop category</p>
+
+      <%= f.select :shop_category,
+       {'カフェ': 1, 'ファストフード': 2, 'レストラン': 3, '居酒屋': 4, 'BAR': 5},
+        {selected: @post.shop_category},
+         { class: 'form__control' , required: true } %>
+
+
+      <p class="body-r__product-category">product category</p>
+      <%= f.select :product_category, 
+      {'飲料': 1, '肉': 2, '魚': 3, '丼物': 4, '麵類': 5, 'パスタ': 6, 'パン': 7, 'カレー': 8, 'ハンバーガー': 9, '和食': 10, '洋食': 11, '中華': 12}, 
+      {selected: @post.product_category}, 
+      { class: 'form__control' , required: true } %>
+      <p class="body-r__tag">tag</p>
+
+
+    </div>
+  </div>
+  <div class="d-flex form__bottom">
+    <div class="form__bottom-img">
+      <p class="form__label">image</p>
+      <img class="form__img form__img-1" src="<%= "/post_image/fd401527.jpg" %>" alt="">
+    </div>
+    <div class="form__bottom-btn">
+
+      <%= f.submit '更新', {class: "btn btn-primary btn-lg"} %>
+      <%= link_to("キャンセル","/posts/#{@post.id}", {class: "btn btn-secondary btn-lg"}) %>
+    </div>
+  </div>
+  <% end %>
+</section>

@@ -1,0 +1,44 @@
+<section class="detail detail__inner">
+  <div class="d-flex align-items-center head">
+    <div class="head__left">
+      <img class="head__user-img" src="<%= "/user_images/default_user_image.jpg" %>" alt="">
+    </div>
+    <div class="head__center flex-grow-1">
+      <p class="head__user-name">user name</p>
+      <%= l @post.created_at%>
+    </p>
+    </div>
+    <div class="head__right">
+      <p class="head__right-like">♥ 100</p>
+    </div>
+  </div>
+  <div class="d-flex body">
+    <div class="body__left">
+      <p class="body-l__shop-name">
+        <%= @post.shop_name%>
+      </p>
+      <p class="body-l__area-name">
+        <%= @post.area_name%>
+      </p>
+      <p class="body-l__comment">
+        <%= @post.comment%>
+      </p>
+    </div>
+    <div class="body__right">
+      <p class="body-r__shop-category">shop category</p>
+      <p class="body-r__product-category">product category</p>
+      <p class="body-r__tag">tag</p>
+    </div>
+  </div>
+  <div class="d-flex body__bottom">
+    <div class="body__bottom-img">
+      <p>image</p>
+      <img src="" alt="">
+    </div>
+    <div class="body__bottom-btn">
+      
+      <%= link_to("編集","/posts/#{@post.id}/edit", {class: "btn btn-primary btn-lg"}) %>
+      <%= link_to("削除","/posts/#{@post.id}/destroy", {method: "post", class: "btn btn-danger btn-lg"}) %>
+    </div>
+  </div>
+</section>
