@@ -23,7 +23,7 @@
           <%= link_to("グルレポとは", "/home/about",{ class: "nav__list-link"}) %>
         </li>
         <li class="nav__list-item">
-          <%= link_to("新規登録", "/home/about",{ class: "nav__list-link"}) %>
+          <%= link_to("新規登録", "/posts/new",{ class: "nav__list-link"}) %>
         </li>
         <li class="nav__list-item">
           <%= link_to("ログイン", "/home/about",{ class: "nav__list-link"}) %>
@@ -32,7 +32,11 @@
     </nav>
   </header>
 
-
+  <% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
 
   <%= yield %>
 </body>

@@ -2,3 +2,11 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+  activerecord:
+    attributes:
+      post:
+        shop_name: 店舗名
+        area_name: 所在地・最寄り駅
+        comment: コメント
+        shop_category: 店舗カテゴリー
+        product_category: 商品カテゴリー

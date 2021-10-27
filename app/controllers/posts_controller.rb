@@ -17,11 +17,15 @@ class PostsController < ApplicationController
       shop_name: params[:shop_name],
       shop_category: params[:shop_category],
       area_name: params[:area_name],
-      product_category: params[product_category],
+      product_category: params[:product_category],
       comment: params[:comment],
       )
-    @post.save
-    redirect_to("/posts/index")
+      if @post.save
+        flash[:notice] = "投稿が完了しました"      
+        redirect_to("/posts/index")
+      else
+        render("posts/new")
+      end
   end
 
   def edit
@@ -35,8 +39,12 @@ class PostsController < ApplicationController
     @post.area_name =  params[:area_name]
     @post.product_category =  params[:product_category]
     @post.comment =  params[:comment]
-    @post.save
-    redirect_to("/posts/index")
+    if @post.save
+      flash[:notice] = "投稿を編集しました"      
+      redirect_to("/posts/index")
+    else
+      render("posts/edit")      
+    end
   end
   
   def destroy
