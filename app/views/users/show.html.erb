@@ -1,0 +1,23 @@
+<section class="detail detail__inner">
+
+  <div class="user-show__head user-show__item">
+    <img class="user-show__img " src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+  </div>
+  <div class="user-show__body">
+    <div class="user-show__name user-show__item">
+      <p>ユーザー名</p>
+      <%= @user.name %>
+    </div>
+
+    <div class="user-show__email user-show__item">
+      <p>メールアドレス</p>
+      <%= @user.email %>
+    </div>
+
+    <div class="user-show__btn">
+      <%= link_to('編集',"/users/#{@user.id}/edit", {class: "btn btn-primary btn-lg"}) %>
+      <%= link_to("キャンセル","/users/index", {class: "btn btn-secondary btn-lg"}) %>
+    </div>
+  </div>
+
+</section>

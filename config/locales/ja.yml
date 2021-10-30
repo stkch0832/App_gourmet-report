@@ -10,3 +10,6 @@ ja:
         comment: コメント
         shop_category: 店舗カテゴリー
         product_category: 商品カテゴリー
+      user:
+        name: ユーザー名
+        email: メールアドレス

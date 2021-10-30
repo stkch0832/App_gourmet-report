@@ -1,0 +1,38 @@
+<section class="detail detail__inner">
+  <% @user.errors.full_messages.each do |message| %>
+  <div class="user-edit__message-error">
+    <%= message %>
+  </div>
+  <% end %>
+
+  <%= form_with url:"/users/#{@user.id}/update", method: 'post' do |f| %>
+
+  <div class="user-show__body">
+    <div class="user-show__name user-show__item">
+      <%= f.label :name, 'ユーザー名' %>
+      <br>
+      <%= f.text_field :name, class: "", size: "30", value: @user.name %>
+    </div>
+
+    <div class="user-show__item">
+      <div>
+        <%= f.label :image_name, 'サムネイル' %>
+      </div>
+      <div>
+        <%= f.file_field :image_name %>
+      </div>
+    </div>
+
+    <div class="user-show__email user-show__item">
+      <%= f.label :email, 'メールアドレス' %>
+      <br>
+      <%= f.email_field :email, class: "", size: "30", value: @user.email %>
+    </div>
+
+    <div class="user-show__btn">
+      <%= f.submit '更新', {class: "btn btn-primary btn-lg"} %>
+      <%= link_to("キャンセル","/users/#{@user.id}", {class: "btn btn-secondary btn-lg"}) %>
+    </div>
+  </div>
+  <% end %>
+</section>

@@ -1,0 +1,19 @@
+<section>
+
+  <ul>
+    <% @users.each do |user|%>
+    <li class="user user__inner">
+      <%=link_to "/users/#{user.id}", class: "none-decoration user__link" do %>
+      <div class="d-flex user__list">
+        <div>
+          <img class="user__image" src="<%= "/user_images/#{user.image_name}" %>" alt="">
+        </div>
+        <div class="user__name">
+          <%= user.name %>
+        </div>
+      </div>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+</section>
