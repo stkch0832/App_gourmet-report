@@ -63,6 +63,7 @@
       width: 100%;
       text-align: center;
     }
+    
   }
 
   // ----- * edit * ----- //
@@ -96,3 +97,33 @@
     }
   }
 }
+
+.login {
+  width: 50%;
+  height: 50rem;
+  margin: 0 auto;
+  padding: 10rem;
+  position: relative;
+  top: 10%;
+
+  &__inner {
+    font-size: 2.5rem;
+    background-color: #eceae4;
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__item {
+    margin-bottom: 5rem;
+  }
+
+  &__error-message {
+    // margin-bottom: 3rem;
+    text-align: center;
+    color: #ff0000;
+  }
+
+}
+

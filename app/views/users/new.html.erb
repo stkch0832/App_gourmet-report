@@ -17,7 +17,7 @@
   <li class="user-new__form-item">
     <%= f.label :password, 'パスワード' %>
     <br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password , value: @user.password %>
   </li>
 
   <li class="user-new__form-item">

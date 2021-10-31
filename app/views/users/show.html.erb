@@ -14,10 +14,9 @@
       <%= @user.email %>
     </div>
 
-    <div class="user-show__btn">
-      <%= link_to('編集',"/users/#{@user.id}/edit", {class: "btn btn-primary btn-lg"}) %>
-      <%= link_to("キャンセル","/users/index", {class: "btn btn-secondary btn-lg"}) %>
-    </div>
+      <% if @user.id == @current_user.id %>
+      <%= link_to("編集", "/users/#{@user.id}/edit",  {class: "btn btn-primary btn-lg"}) %>
+      <% end %>
   </div>
 
 </section>

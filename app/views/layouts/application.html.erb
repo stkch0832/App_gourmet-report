@@ -19,18 +19,37 @@
         <%= link_to("グルレポ", "/",{ class: "none-decoration nav__ttl-link"}) %>
       </h1>
       <ul class="d-flex nav__list">
+        <% current_user = User.find_by(id: session[:user_id]) %>
+        <% if @current_user %>
         <li class="nav__list-item">
-          <%= link_to("グルレポとは", "/home/about",{ class: "nav__list-link"}) %>
-        </li>
+          <div class="nav__list-link">
+            <%= link_to(@current_user.name, "/users/#{@current_user.id}", class: "none-decoration") %>
+          </div>
         <li class="nav__list-item">
           <%= link_to("ユーザー一覧", "/users/index",{ class: "nav__list-link"}) %>
+        </li>
+        <li class="nav__list-item">
+          <%= link_to("新規投稿", "/posts/new",{ class: "nav__list-link"}) %>
+        </li>
+        <li class="nav__list-item">
+          <%= link_to("投稿一覧", "/posts/index",{ class: "nav__list-link"}) %>
+        </li>
+        <li class="nav__list-item">
+          <%= link_to("ログアウト", "/logout", {method: "post", class: "nav__list-link"}) %>
+        </li>
+
+        <% else %>
+
+        <li class="nav__list-item">
+          <%= link_to("グルレポとは", "/home/about",{ class: "nav__list-link"}) %>
         </li>
         <li class="nav__list-item">
           <%= link_to("新規登録", "/users/new",{ class: "nav__list-link"}) %>
         </li>
         <li class="nav__list-item">
-          <%= link_to("ログイン", "/home/about",{ class: "nav__list-link"}) %>
+          <%= link_to("ログイン", "/login",{ class: "nav__list-link"}) %>
         </li>
+        <% end %>
       </ul>
     </nav>
   </header>

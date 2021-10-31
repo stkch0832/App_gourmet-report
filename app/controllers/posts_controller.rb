@@ -8,6 +8,10 @@ class PostsController < ApplicationController
   end
 
   def new
+    if @current_user == nil
+      flash[:notice] = "ログインが必要です"
+      redirect_to("/login")
+    end
     @post = Post.new
   end
 

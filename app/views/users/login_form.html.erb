@@ -1,15 +1,31 @@
-<section>
-
-  <%= form_with url: "/users/login", do |f| %>
-
-  <div>
-  <%= f.label :name, "ユーザー名" %>
-  <%= f.text_field :name %>
+<section class="login login__inner">
+  <% if @error_message %>
+  <div class="login__error-message">
+    <%= @error_message %>
   </div>
+  <% end %>
 
-  <div>
-  <%= f.label :password, "パスワード" %>
-  <%= f.password_field :password %>
+  <%= form_with url: "/login" do |f| %>
+
+  <div class="login__content">
+    <li class="login__item">
+      <%= f.label :name, "ユーザー名" %>
+      <br>
+      <%= f.text_field :name, value: @name %>
+    </li>
+
+    <li class="login__item">
+      <%= f.label :password, "パスワード" %>
+      <br>
+      <%= f.password_field :password, value: @password %>
+    </li>
+
+    <li class="login__item">
+      <%= f.submit 'ログイン', {class: "btn btn-primary btn-size"} %>
+      <button class="btn btn-secondary btn-size">
+        <%= link_to("キャンセル","/", {class: "btn__none-decoration"}) %>
+      </button>
+    </li>
   </div>
 
   <% end %>
