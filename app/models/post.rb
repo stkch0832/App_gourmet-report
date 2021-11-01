@@ -4,4 +4,5 @@ class Post < ApplicationRecord
   validates :comment, { presence: true, length: { maximum: 140 } }
   validates :shop_category, { presence: true }
   validates :product_category, { presence: true }
+  validates :user_id, {presence: true}
 end
