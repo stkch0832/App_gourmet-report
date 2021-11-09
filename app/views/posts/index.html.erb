@@ -8,8 +8,9 @@
       <div class="post__content">
         <div class="post__content-col">
           <div class="post__name">
-            <% user = User.find_by(id: post.user_id) %>
+            <% user = User.find_by(id: post.user_id) do %>
             <%= user.name %>
+            <% end %>
           </div>
           <div class="post__date">
             <%= l post.created_at %>
