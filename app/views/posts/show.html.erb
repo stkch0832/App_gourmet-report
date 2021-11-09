@@ -1,10 +1,12 @@
 <section class="detail detail__inner">
   <div class="d-flex align-items-center head">
     <div class="head__left">
-      <img class="head__user-img" src="<%= "/user_images/default_user_image.jpg" %>" alt="">
+      <img class="head__user-img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
     </div>
     <div class="head__center flex-grow-1">
-      <p class="head__user-name">user name</p>
+      <p class="head__user-name">
+      <%= @user.name %>
+      </p>
       <%= l @post.created_at%>
     </p>
     </div>
@@ -14,20 +16,29 @@
   </div>
   <div class="d-flex body">
     <div class="body__left">
-      <p class="body-l__shop-name">
+      <li class="body-l__shop-name">
+        <p>店舗名</p>
         <%= @post.shop_name%>
-      </p>
-      <p class="body-l__area-name">
+      </li>
+      <li class="body-l__area-name">
+        <p>地域・最寄り駅</p>
         <%= @post.area_name%>
-      </p>
-      <p class="body-l__comment">
+      </li>
+      <li class="body-l__comment">
+        <p>コメント</p>
         <%= @post.comment%>
-      </p>
+      </li>
     </div>
     <div class="body__right">
-      <p class="body-r__shop-category">shop category</p>
-      <p class="body-r__product-category">product category</p>
-      <p class="body-r__tag">tag</p>
+      <li class="body-r__shop-category">
+      <p>店舗カテゴリー</p>
+      <%= @post.shop_category %>
+      </li>
+      <li class="body-r__product-category">
+      <p>商品カテゴリー</p>
+      <%= @post.product_category %>
+      </li>
+      <li class="body-r__tag">tag</li>
     </div>
   </div>
   <div class="d-flex body__bottom">

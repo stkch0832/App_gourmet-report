@@ -1,12 +1,17 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user
+  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+
   def index
     @posts = Post.all.order(create_at: :desc)
   end
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
+    
   end
-
+  
   def new
     if @current_user == nil
       flash[:notice] = "ログインが必要です"
@@ -14,7 +19,7 @@ class PostsController < ApplicationController
     end
     @post = Post.new
   end
-
+  
   def create
     @post = Post.new(
       shop_name: params[:shop_name],
@@ -22,6 +27,7 @@ class PostsController < ApplicationController
       area_name: params[:area_name],
       product_category: params[:product_category],
       comment: params[:comment],
+      user_id: @current_user.id
       )
       if @post.save
         flash[:notice] = "投稿が完了しました"      
@@ -55,4 +61,12 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to("/posts/index")
   end
+
+
+def ensure_correct_user
+  if @current_user.id != params[:id].to_i
+    flash[:notice] = "権限がありません"
+    redirect_to ("/posts/index")
+  end
+end
 end

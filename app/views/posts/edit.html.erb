@@ -4,18 +4,7 @@
     <%= message %>
   </div>
   <% end %>
-  <div class="d-flex align-items-center head">
-    <div class="head__left">
-      <img class="head__user-img" src="<%= "/user_images/default_user_image.jpg" %>" alt="">
-    </div>
-    <div class="head__center flex-grow-1">
-      <p class="head__user-name">user name</p>
-      </p>
-    </div>
-    <div class="head__right">
-      <p class="head__right-like">♥ 100</p>
-    </div>
-  </div>
+
 
   <%= form_with url:"/posts/#{@post.id}/update" do |f| %>
 
@@ -40,13 +29,13 @@
     <div class="form__right">
       <p class="form__item form__shop-category">店舗カテゴリー</p>
       <%= f.select :shop_category,
-       {'カフェ': 1, 'ファストフード': 2, 'レストラン': 3, '居酒屋': 4, 'BAR': 5},
+       {'カフェ': 'カフェ', 'ファストフード': 'ファストフード', 'レストラン': 'レストラン', '居酒屋': '居酒屋', 'BAR': 'BAR'},
         {selected: @post.shop_category},
          { class: 'form__control' , required: true } %>
 
       <p class="body-r__product-category">商品カテゴリー</p>
       <%= f.select :product_category, 
-      {'飲料': 1, '肉': 2, '魚': 3, '丼物': 4, '麵類': 5, 'パスタ': 6, 'パン': 7, 'カレー': 8, 'ハンバーガー': 9, '和食': 10, '洋食': 11, '中華': 12}, 
+       {'飲料': '飲料', '肉': '肉', '魚': '魚', '丼物': '丼物', '麵類': '麵類', 'パスタ': 'パスタ', 'パン': 'パン', 'カレー': 'カレー', 'ハンバーガー': 'ハンバーガー', '和食': '和食', '洋食': '洋食', '中華': '中華'}, 
       {selected: @post.product_category}, 
       { class: 'form__control' , required: true } %>
       <p class="body-r__tag">tag</p>

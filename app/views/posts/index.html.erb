@@ -1,30 +1,52 @@
 <section>
 
-  <ul>
-    <% @posts.each do |post|%>
-    <li class="post post__inner">
-      <%=link_to "/posts/#{post.id}", class: "none-decoration post__link" do %>
-      <div class="d-flex post__item">
-        <img class="post__user-image" src="/default_user_image.jpg" alt="">
-        <div class="d-flex post__info">
-          <div class="post__info-left">
-            <%# <p>user_name</p> %>
-            <br>
+  <% @posts.each do |post|%>
+  <li class="post post__inner">
+    <%= link_to "", "/posts/#{post.id}", class: "none-decoration post__link" %>
+    <div class="post__list">
+      <img class="post__user-image" src="<%= "/user_images/#{post.user_id}.jpg" %>" alt="">
+      <div class="post__content">
+        <div class="post__content-col">
+          <div class="post__name">
+            <% user = User.find_by(id: post.user_id) %>
+            <%= user.name %>
+          </div>
+          <div class="post__date">
             <%= l post.created_at %>
           </div>
-          <div class="post__info-center">
+        </div>
+        <div class="post__content-col">
+          <div class="post__shop-name">
             <%= post.shop_name %>
-            <br>
+          </div>
+          <div class="post__area-name">
             <%= post.area_name %>
           </div>
-          <div class="post__info-right">
-            <%= post.comment %>
+        </div>
+        <div class="post__content-col">
+          <%= post.comment %>
+        </div>
+      </div>
+      <div class="post__image">
+        <img class="post__image-product" src="" alt="">
+      </div>
+      <div class="post__like">
+        <div class="post__like-item">
+          <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+          <%= link_to("/likes/#{post.id}/destroy", { class: "none-decoration post__like-btn", method: "post"}) do %>
+          <i class="fas fa-heart"></i>
+          <% end %>
+          <% else %>
+          <%= link_to("/likes/#{post.id}/create" ,{ class: "none-decoration post__like-btn", method: "post"}) do %><i
+            class="fas fa-heart " style="color: darkgrey;"></i>
+          <% end %>
+          <% end %>
+          <div class="post__like-count">
+            _<%= Like.where(post_id: post.id).count %>
           </div>
         </div>
-        <img class="post__post-image" src="" alt="">
       </div>
-      <% end %>
-    </li>
-    <% end %>
-  </ul>
+    </div>
+  </li>
+  <% end %>
 </section>

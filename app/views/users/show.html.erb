@@ -1,22 +1,56 @@
-<section class="detail detail__inner">
+<section class="user-show__board">
+  <div class="user-show__profile">
+    <div class="user-show__img-content">
+      <img class="user-show__img " src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+    </div>
+    <div class="user-show__info">
+      <div class="user-show__name user-show__item">
+        <span>ユーザー名:
+          <%= @user.name %>
+        </span>
+      </div>
 
-  <div class="user-show__head user-show__item">
-    <img class="user-show__img " src="<%= "/user_images/#{@user.image_name}" %>" alt="">
-  </div>
-  <div class="user-show__body">
-    <div class="user-show__name user-show__item">
-      <p>ユーザー名</p>
-      <%= @user.name %>
+      <div class="user-show__email user-show__item">
+        <span>
+          メールアドレス:
+          <%= @user.email %>
+        </span>
+      </div>
     </div>
 
-    <div class="user-show__email user-show__item">
-      <p>メールアドレス</p>
-      <%= @user.email %>
-    </div>
-
+    <div class="user-show__edit">
       <% if @user.id == @current_user.id %>
-      <%= link_to("編集", "/users/#{@user.id}/edit",  {class: "btn btn-primary btn-lg"}) %>
+      <%= link_to("編集", "/users/#{@user.id}/edit", {class: "user-show__edit-link"}) %>
       <% end %>
+    </div>
   </div>
+</section>
 
+<section class="user-show__board">
+  <% @user.posts.each do |post| %>
+  <%= link_to "/posts/#{post.id}" ,class: "none-decoration" do %>
+  <div class="user-show__posts none-decoration">
+    <div class="user-show__posts-time">
+      <%= l post.created_at  %>
+    </div>
+    <div class="user-show__posts-info">
+      <div class="user-show__posts-name">
+        <div class="user-show__posts-item">
+          <%= post.shop_name %>
+        </div>
+        <div class="user-show__posts-item">
+          <%= post.area_name %>
+        </div>
+      </div>
+      <div class="user-show__posts-comment">
+        <%= post.comment %>
+      </div>
+    </div>
+      <div calss="user-show__posts-img-content">
+        <img class="user-show__posts-img-item" src="/post_image/fd401527.jpg" alt="">
+      </div>
+  </div>
+  <% end %>
+
+  <% end %>
 </section>
